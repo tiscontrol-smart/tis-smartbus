@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tis-smartbus"
+version = "0.1.0"
+description = "Async client for the TIS Control SmartBus over an IP gateway"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "TIS Control" }]
+dependencies = []
+classifiers = [
+  "Framework :: AsyncIO",
+  "Programming Language :: Python :: 3",
+  "Topic :: Home Automation",
+]
+
+[project.urls]
+Homepage = "https://github.com/tiscontrol-smart/tis-smartbus"
+Issues = "https://github.com/tiscontrol-smart/tis-smartbus/issues"
+
+[project.optional-dependencies]
+test = ["pytest>=8", "pytest-asyncio>=0.23"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+tis_smartbus = ["device_types.json", "py.typed"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

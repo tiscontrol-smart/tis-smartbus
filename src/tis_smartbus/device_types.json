@@ -1,0 +1,868 @@
+{
+ "0x0020": {
+  "model": "TIS-DMX-48",
+  "flag": 18,
+  "channels": 48,
+  "desc": "Dimmer 48CH(with DMX)"
+ },
+ "0x0076": {
+  "model": "TIS-4DL-IN",
+  "flag": 6,
+  "desc": "4 Zone Dry Contact DIGITAL INPUT"
+ },
+ "0x0077": {
+  "model": "HVAC6-3A-T",
+  "flag": 9,
+  "desc": "HVAC,vav Air Condition Control Module"
+ },
+ "0x0085": {
+  "model": "MS-PIR-CM",
+  "flag": 12,
+  "desc": "Ceiling PIR Sensor"
+ },
+ "0x0132": {
+  "model": "TIS-IR-CUR",
+  "flag": 7,
+  "desc": "IR Emitter WITH CURRENT SENSOR"
+ },
+ "0x0135": {
+  "model": "ES-10F-CM",
+  "flag": 2,
+  "desc": "10 Functions Sensor"
+ },
+ "0x013a": {
+  "model": "SB-5in1TL-CL",
+  "flag": 0,
+  "desc": "5 in 1 sensor"
+ },
+ "0x01a8": {
+  "model": "RLY-4CH-10A",
+  "flag": 4,
+  "channels": 4,
+  "desc": "Relay 4ch 10A"
+ },
+ "0x01aa": {
+  "model": "VLC-6CH-3A",
+  "flag": 4,
+  "channels": 6,
+  "desc": "Valve Lighting Controler 6CH  5A"
+ },
+ "0x01ac": {
+  "model": "RLY-8CH-16A",
+  "flag": 4,
+  "channels": 8,
+  "desc": "Relay 8ch 20A"
+ },
+ "0x01b8": {
+  "model": "VLC-12CH-10A",
+  "flag": 4,
+  "channels": 12,
+  "desc": "Valve Lighting Controler 12CH 10A"
+ },
+ "0x0258": {
+  "model": "DIM-6CH-2A",
+  "flag": 8,
+  "channels": 6,
+  "desc": "Dimmer 6ch 2A"
+ },
+ "0x0259": {
+  "model": "DIM-4CH-3A",
+  "flag": 8,
+  "channels": 4,
+  "desc": "Dimmer 4ch 3A"
+ },
+ "0x025a": {
+  "model": "DIM-2CH-6A",
+  "flag": 8,
+  "channels": 2,
+  "desc": "Dimmer 2ch 6A"
+ },
+ "0x0386": {
+  "model": "TIS-AUD-PLY-5",
+  "flag": 11,
+  "desc": "TIS AUDIO PLAYER"
+ },
+ "0x0454": {
+  "model": "TIS-AUT-TMR",
+  "flag": 15,
+  "desc": "AUTOMATION TIMER MODULE"
+ },
+ "0x04b1": {
+  "model": "TIS-IP-COM-PORT",
+  "flag": 10,
+  "desc": "RS232IP Module"
+ },
+ "0x0be9": {
+  "model": "TIS-SEC-SM",
+  "flag": 14,
+  "desc": "SECURITY MODULE"
+ },
+ "0x1770": {
+  "model": "TER-4G"
+ },
+ "0x177a": {
+  "model": "TER-ACT"
+ },
+ "0x1784": {
+  "model": "TER-AUD"
+ },
+ "0x1b80": {
+  "model": "MRS-4G",
+  "flag": 1,
+  "desc": "MARS 4 Buttons"
+ },
+ "0x1b8a": {
+  "model": "MRS-8G",
+  "flag": 1,
+  "desc": "MARS 8 Buttons"
+ },
+ "0x1b94": {
+  "model": "MRS-12G",
+  "flag": 1,
+  "desc": "MARS 12 Buttons"
+ },
+ "0x1b9e": {
+  "model": "MRS-AC10G",
+  "flag": 1,
+  "desc": "MARS AC THERMOSTAT 10 BUTTONS"
+ },
+ "0x1ba8": {
+  "model": "DALI-64",
+  "channels": 64
+ },
+ "0x1ba9": {
+  "model": "DALI-PRO-64",
+  "channels": 64
+ },
+ "0x1bb2": {
+  "model": "LED DIMMER 4CH10A"
+ },
+ "0x1bb4": {
+  "model": "DIM-TE-2CH-3A",
+  "channels": 2
+ },
+ "0x1bb6": {
+  "model": "DIM-TE- 4CH-1.5A",
+  "channels": 4
+ },
+ "0x1bba": {
+  "model": "RCU-8OUT-8IN",
+  "channels": 8
+ },
+ "0x1bbb": {
+  "model": "RLY-6CH-0-10V(RCU6CH0-10V)"
+ },
+ "0x2332": {
+  "model": "Luna-TFT43",
+  "flag": 5,
+  "desc": "LUNA TFT TOUCH SCREEN 4.3\""
+ },
+ "0x2333": {
+  "model": "luna-access"
+ },
+ "0x2396": {
+  "model": "Luna-9Gangs",
+  "flag": 13,
+  "desc": "LUNA 9 GANGS TOUCH PANEL"
+ },
+ "0x23fa": {
+  "model": "Luna-BedSide",
+  "flag": 16,
+  "desc": "LUNA BED SIDE TOUCH PANEL"
+ },
+ "0x245e": {
+  "model": "Luna-Bell-3S/Luna-Bell-3S-RF",
+  "flag": 17,
+  "desc": "HOTEL BELL WITH SERVICES"
+ },
+ "0x6000": {
+  "model": "TER-4G"
+ },
+ "0x6010": {
+  "model": "TER-ACT"
+ },
+ "0x6020": {
+  "model": "TER-AUD"
+ },
+ "0x7040": {
+  "model": "MRS-4G"
+ },
+ "0x7050": {
+  "model": "MRS-8G"
+ },
+ "0x7060": {
+  "model": "MRS-12G"
+ },
+ "0x7070": {
+  "model": "MRS-AC10G"
+ },
+ "0x7080": {
+  "model": "DALI-64",
+  "channels": 64
+ },
+ "0x7081": {
+  "model": "DALI-PRO-64",
+  "channels": 64
+ },
+ "0x7090": {
+  "model": "LED DIMMER 4CH10A"
+ },
+ "0x7092": {
+  "model": "DIM-TE-2CH-3A",
+  "channels": 2
+ },
+ "0x7094": {
+  "model": "DIM-TE- 4CH-1.5A",
+  "channels": 4
+ },
+ "0x7098": {
+  "model": "RCU-8OUT-8IN",
+  "channels": 8
+ },
+ "0x7099": {
+  "model": "RLY-6CH-0-10V(RCU6CH0-10V)"
+ },
+ "0x8010": {
+  "model": "TIS-M3-MOTOR",
+  "flag": 3,
+  "desc": "TIS M3 Motor"
+ },
+ "0x8013": {
+  "model": "IDA-8G-Panel"
+ },
+ "0x8014": {
+  "model": "IDA-Rotate-Panel"
+ },
+ "0x8015": {
+  "model": "128K VEN BUS 6G"
+ },
+ "0x8016": {
+  "model": "BUS TITAN 1G"
+ },
+ "0x8017": {
+  "model": "BUS TITAN 2G"
+ },
+ "0x8018": {
+  "model": "BUS TITAN 3G"
+ },
+ "0x8019": {
+  "model": "BUS TITAN 4G"
+ },
+ "0x801a": {
+  "model": "AIR TITAN 1G"
+ },
+ "0x801b": {
+  "model": "AIR TITAN 2G"
+ },
+ "0x801c": {
+  "model": "AIR TITAN 3G"
+ },
+ "0x801d": {
+  "model": "AIR TITAN 4G"
+ },
+ "0x801e": {
+  "model": "ADS BUS TE"
+ },
+ "0x801f": {
+  "model": "AIR TITAN"
+ },
+ "0x8020": {
+  "model": "Finger Print"
+ },
+ "0x8021": {
+  "model": "ACM 1D1Z"
+ },
+ "0x8022": {
+  "model": "Helath sensor"
+ },
+ "0x8023": {
+  "model": "512K VEN BUS 1G"
+ },
+ "0x8024": {
+  "model": "512K VEN BUS 2G"
+ },
+ "0x8025": {
+  "model": "512K VEN BUS 3G"
+ },
+ "0x8026": {
+  "model": "512K VEN BUS 4G"
+ },
+ "0x8027": {
+  "model": "VEN BUS AC 3R"
+ },
+ "0x8028": {
+  "model": "VEN BUS AC 4R"
+ },
+ "0x8029": {
+  "model": "VEN BUS AC 5R"
+ },
+ "0x802a": {
+  "model": "VEN BUS FH 1R"
+ },
+ "0x802b": {
+  "model": "RCU24"
+ },
+ "0x802c": {
+  "model": "Titan"
+ },
+ "0x802d": {
+  "model": "RCU-20R20Z-IP",
+  "channels": 20
+ },
+ "0x802e": {
+  "model": "ACM-1D-2Z"
+ },
+ "0x802f": {
+  "model": "BUS Temperature4CH"
+ },
+ "0x8030": {
+  "model": "DIM-W06CH10A-TE",
+  "channels": 6
+ },
+ "0x8031": {
+  "model": "DIM-W12CH10A-TE",
+  "channels": 12
+ },
+ "0x8032": {
+  "model": "ZIGBEE ACM 2R2Z"
+ },
+ "0x8033": {
+  "model": "ZIGBEE VEN HOTEL CARD 透传+中山"
+ },
+ "0x8034": {
+  "model": "BUS DRIVER RGBW"
+ },
+ "0x8035": {
+  "model": "BUS ADS RGBW"
+ },
+ "0x8036": {
+  "model": "AIR-2IRE-2ZT",
+  "channels": 2
+ },
+ "0x8037": {
+  "model": "MS-PIR-CM(STM32)"
+ },
+ "0x8038": {
+  "model": "BUS-ES-IR"
+ },
+ "0x8039": {
+  "model": "VEN-FH-1R-HC"
+ },
+ "0x803a": {
+  "model": "VEN-1S-1R-HC"
+ },
+ "0x803b": {
+  "model": "ADS-3R-BUS",
+  "channels": 3
+ },
+ "0x803c": {
+  "model": "ACM-3Z-IN"
+ },
+ "0x803d": {
+  "model": "AIR-1IRE-T",
+  "channels": 1
+ },
+ "0x803e": {
+  "model": "BUS-IRE-T",
+  "channels": 1
+ },
+ "0x803f": {
+  "model": "AIR-ES-IR",
+  "channels": 1
+ },
+ "0x8040": {
+  "model": "ADS-1D-1Z",
+  "channels": 1
+ },
+ "0x8041": {
+  "model": "ADS-2R-2Z",
+  "channels": 2
+ },
+ "0x8042": {
+  "model": "AIR-PIR-2R-CM"
+ },
+ "0x8043": {
+  "model": "VEN-4S-4R-HC",
+  "channels": 4
+ },
+ "0x8044": {
+  "model": "VEN-AC-5R-LC"
+ },
+ "0x8045": {
+  "model": "VEN-AC-4R-HC"
+ },
+ "0x8046": {
+  "model": "AIR-1IRE-T(旧方案)",
+  "channels": 1
+ },
+ "0x8047": {
+  "model": "AIR 4Zone"
+ },
+ "0x8048": {
+  "model": "AIR-2IRE(旧方案)",
+  "channels": 2
+ },
+ "0x804a": {
+  "model": "AIR 1R1Z"
+ },
+ "0x804b": {
+  "model": "ACM-2R-2Z"
+ },
+ "0x804c": {
+  "model": "VEN-2S-2R-HC",
+  "channels": 2
+ },
+ "0x804d": {
+  "model": "VEN-AC-3R-HC"
+ },
+ "0x804e": {
+  "model": "ADS-4CH-0-10V",
+  "channels": 4
+ },
+ "0x804f": {
+  "model": "ADS-3R-3Z",
+  "channels": 3
+ },
+ "0x8050": {
+  "model": "AMP-5S1Z-MTX"
+ },
+ "0x8051": {
+  "model": "AIR-Socket-S/AIR-Socket-D"
+ },
+ "0x8052": {
+  "model": "VEN-1D-UV",
+  "channels": 1
+ },
+ "0x8053": {
+  "model": "VEN-3S-3R-HC",
+  "channels": 3
+ },
+ "0x8054": {
+  "model": "TIS-AIR-BUS-3W/TIS-AIR-BUS"
+ },
+ "0x8055": {
+  "model": "TIS-PRJ-LFT-15K-130"
+ },
+ "0x8056": {
+  "model": "TIS TV Lift"
+ },
+ "0x8057": {
+  "model": "TIS-WS-EQ"
+ },
+ "0x8058": {
+  "model": "New IP Port"
+ },
+ "0x8060": {
+  "model": "MET-EN-1PH"
+ },
+ "0x8061": {
+  "model": "KNX CONVERTOR"
+ },
+ "0x8062": {
+  "model": "TRV Gateway"
+ },
+ "0x8063": {
+  "model": "CARD_ISSUER_Reader"
+ },
+ "0x8064": {
+  "model": "LUNA_IN_HRF"
+ },
+ "0x8065": {
+  "model": "LUNA_IN_3T3L_HRF"
+ },
+ "0x8066": {
+  "model": "IO_IN_3B3L_HRF"
+ },
+ "0x8067": {
+  "model": "LUNA_OUT_1T3L_HRF"
+ },
+ "0x8068": {
+  "model": "LUNA_OUT_1T3L_"
+ },
+ "0x8069": {
+  "model": "IO_OUT_1B2L_HRF"
+ },
+ "0x806a": {
+  "model": "IO_OUT_1B2L_"
+ },
+ "0x806b": {
+  "model": "Mercury 8G"
+ },
+ "0x806c": {
+  "model": "Mercury AC"
+ },
+ "0x806d": {
+  "model": "IO_IN_3B3L_LRF_"
+ },
+ "0x806e": {
+  "model": "IO_OUT_1B2L_LRF"
+ },
+ "0x806f": {
+  "model": "LUNA_IN_LRF_"
+ },
+ "0x8070": {
+  "model": "LUNA OUT 1T3L LRF"
+ },
+ "0x8071": {
+  "model": "LUNA IN 3T3L LRF"
+ },
+ "0x807a": {
+  "model": "TIS Wall Panel"
+ },
+ "0x807b": {
+  "model": "AMP Arylic"
+ },
+ "0x807c": {
+  "model": "2021NEW CURTAIN"
+ },
+ "0x807d": {
+  "model": "128K VEN BUS 1G"
+ },
+ "0x807e": {
+  "model": "128K VEN BUS 2G"
+ },
+ "0x807f": {
+  "model": "128K VEN BUS 3G"
+ },
+ "0x8080": {
+  "model": "128K VEN BUS 4G"
+ },
+ "0x8081": {
+  "model": "VEN BUS AC 3R 1.5'OLED"
+ },
+ "0x8082": {
+  "model": "VEN BUS AC 4R 1.5'OLED"
+ },
+ "0x8083": {
+  "model": "VEN BUS AC 5R 1.5'OLED"
+ },
+ "0x8084": {
+  "model": "VEN BUS FH 1.5'OLED"
+ },
+ "0x8085": {
+  "model": "VEN AIR AC 3R 1.5'OLED"
+ },
+ "0x8086": {
+  "model": "VEN AIR AC 4R 1.5'OLED"
+ },
+ "0x8087": {
+  "model": "VEN AIR AC 5R 1.5'OLED"
+ },
+ "0x8088": {
+  "model": "VEN AIR FH 1.5'OLED"
+ },
+ "0x8089": {
+  "model": "中弘VRV B17"
+ },
+ "0x808a": {
+  "model": "128K VEN AIR 1G"
+ },
+ "0x808b": {
+  "model": "128K VEN AIR 2G"
+ },
+ "0x808c": {
+  "model": "128K VEN AIR 3G"
+ },
+ "0x808d": {
+  "model": "128K VEN AIR 4G"
+ },
+ "0x808f": {
+  "model": "bedside 12G"
+ },
+ "0x8090": {
+  "model": "ADD-RS485-RS232-Conver"
+ },
+ "0x8091": {
+  "model": "Analog Input 4CH"
+ },
+ "0x8092": {
+  "model": "Water Proof Door Bell"
+ },
+ "0x8093": {
+  "model": "SOL 3G"
+ },
+ "0x8094": {
+  "model": "MER_IN_LRF"
+ },
+ "0x8095": {
+  "model": "Terren 2G"
+ },
+ "0x8096": {
+  "model": "SOL TFT PANEL"
+ },
+ "0x8097": {
+  "model": "MER OUT HRF"
+ },
+ "0x8098": {
+  "model": "MER OUT LRF"
+ },
+ "0x8099": {
+  "model": "TIS VRV B25 GW V1.00"
+ },
+ "0x809a": {
+  "model": "IO_OUT_1B2L_HRF_0x809A"
+ },
+ "0x809b": {
+  "model": "IO_OUT_1B2L_0x809B"
+ },
+ "0x809c": {
+  "model": "LUNA_OUT_1T3L_HRF_0x809C"
+ },
+ "0x809d": {
+  "model": "LUNA_OUT_1T3L_0x809D"
+ },
+ "0x809e": {
+  "model": "IO IN 1B3L HRF 0X809E"
+ },
+ "0x80a1": {
+  "model": "CLICK 1 Gang"
+ },
+ "0x80a2": {
+  "model": "CLICK 2 Gang"
+ },
+ "0x80a3": {
+  "model": "CLICK 3 Gang"
+ },
+ "0x80a4": {
+  "model": "CLICK 4 Gang"
+ },
+ "0x80a6": {
+  "model": "CLICK 6 Gang"
+ },
+ "0x80a7": {
+  "model": "SMS Module"
+ },
+ "0x80a8": {
+  "model": "TIS Click AC 拉斐"
+ },
+ "0x80a9": {
+  "model": "DRY22"
+ },
+ "0x80aa": {
+  "model": "MER HRF内机"
+ },
+ "0x80ab": {
+  "model": "Analog Input 4CH"
+ },
+ "0x80ac": {
+  "model": "Analog Input 4CH"
+ },
+ "0x80ad": {
+  "model": "MER HRF外机"
+ },
+ "0x80b0": {
+  "model": "MMV2",
+  "channels": 4
+ },
+ "0x80b1": {
+  "model": "EUROPA 1 Gang"
+ },
+ "0x80b2": {
+  "model": "EUROPA 2 Gang"
+ },
+ "0x80b3": {
+  "model": "EUROPA 3 Gang"
+ },
+ "0x80b4": {
+  "model": "EUROPA 4 Gang"
+ },
+ "0x80b6": {
+  "model": "EUROPA 6 Gang"
+ },
+ "0x80b7": {
+  "model": "拉菲旋钮空调"
+ },
+ "0x80b8": {
+  "model": "ADD-CBUS"
+ },
+ "0x80b9": {
+  "model": "FanControl 4CH"
+ },
+ "0x80ba": {
+  "model": "MMV2-IRE",
+  "channels": 1
+ },
+ "0x80c2": {
+  "model": "SIRIUS 2 Gang"
+ },
+ "0x80c3": {
+  "model": "SIRIUS 3 Gang"
+ },
+ "0x80c4": {
+  "model": "SIRIUS 4 Gang"
+ },
+ "0x80c6": {
+  "model": "SIRIUS 6 Gang"
+ },
+ "0x80c8": {
+  "model": "SIRIUS 8 Gang"
+ },
+ "0x80d0": {
+  "model": "India Lucky 3x86 6Relay 1Fan 5Zone"
+ },
+ "0x80d1": {
+  "model": "3x86 3Relay 1dali 5Zone"
+ },
+ "0x80d2": {
+  "model": "3x86 3Relay 2LeDim 1Fan 5Zone"
+ },
+ "0x8110": {
+  "model": "Curtain(roller)"
+ },
+ "0x8120": {
+  "model": "8CH DIM"
+ },
+ "0x8121": {
+  "model": "MER TFT 1.5 AC"
+ },
+ "0x8122": {
+  "model": "VEN AC ZIGBEE 3R"
+ },
+ "0x8123": {
+  "model": "VEN AC ZIGBEE 4R"
+ },
+ "0x8124": {
+  "model": "VEN AC ZIGBEE 5R"
+ },
+ "0x8125": {
+  "model": "AIKS面板1G"
+ },
+ "0x8126": {
+  "model": "AIKS面板2G"
+ },
+ "0x8127": {
+  "model": "AIKS面板3G"
+ },
+ "0x8128": {
+  "model": "AIKS面板4G"
+ },
+ "0x8129": {
+  "model": "AIKS面板8G"
+ },
+ "0x812a": {
+  "model": "ZIGBEE REX VEN AC 3R"
+ },
+ "0x812b": {
+  "model": "ZIGBEE REX VEN AC 4R"
+ },
+ "0x812c": {
+  "model": "ZIGBEE REX VEN AC 5R"
+ },
+ "0x812d": {
+  "model": "MINI-ZIG-AUTO-IRE-T 2IRE-2Z"
+ },
+ "0x812e": {
+  "model": "ZIGBEE REX VEN TE DIM"
+ },
+ "0x812f": {
+  "model": "ZIGBEE REX RADAR -IRE"
+ },
+ "0x8130": {
+  "model": "ZIGBEE CARD 标准+外购读卡"
+ },
+ "0x8132": {
+  "model": "ZIG EON 3G IRE"
+ },
+ "0x8133": {
+  "model": "ZIG EON 3G IRE RADAR"
+ },
+ "0x8134": {
+  "model": "ZIG REX HEALTH SENSOR"
+ },
+ "0x8136": {
+  "model": "Zig-bus"
+ },
+ "0x8137": {
+  "model": "土壤灌溉"
+ },
+ "0x8138": {
+  "model": "EON TE DIM"
+ },
+ "0x8139": {
+  "model": "ZIG ACM 6Z"
+ },
+ "0x8140": {
+  "model": "MERCURY AC TFT BUS"
+ },
+ "0x8141": {
+  "model": "Mercury 8G BUS版本"
+ },
+ "0x8142": {
+  "model": "ZIG EON 4G IRE"
+ },
+ "0x8143": {
+  "model": "ZIG EON 4G IRE RADAR"
+ },
+ "0x8144": {
+  "model": "ZIG EON Panel"
+ },
+ "0x8145": {
+  "model": "空气过滤小"
+ },
+ "0x8146": {
+  "model": "空气过滤大"
+ },
+ "0x8147": {
+  "model": "除湿"
+ },
+ "0x8148": {
+  "model": "MER TFT 1.5 AC"
+ },
+ "0x8149": {
+  "model": "公厕臭味检测 smell"
+ },
+ "0x814a": {
+  "model": "TARIQ TRT ACM 6R"
+ },
+ "0x814b": {
+  "model": "TARIQ TRT ACM 3R+2DIM"
+ },
+ "0x814c": {
+  "model": "TARIQ TRT ACM 3R+DALI"
+ },
+ "0x814d": {
+  "model": "阿尔巴尼亚的白色PCB的酒店外机"
+ },
+ "0x814e": {
+  "model": "RCU8+DALI"
+ },
+ "0x9010": {
+  "model": "Luna-TFT43"
+ },
+ "0x9011": {
+  "model": "luna-access"
+ },
+ "0x9110": {
+  "model": "Luna-9Gangs"
+ },
+ "0x9210": {
+  "model": "Luna-BedSide"
+ },
+ "0x9310": {
+  "model": "Luna-Bell-3S/Luna-Bell-3S-RF"
+ },
+ "0x80af": {
+  "model": "TIS-ZIG-WF-GTY-V4",
+  "desc": "TIS Zigbee Wifi Gateway"
+ },
+ "0x80b5": {
+  "model": "TIS-ZIG-WF-GTY-V5",
+  "desc": "TIS Zigbee Wifi Gateway"
+ },
+ "0xccb3": {
+  "model": "TIS-SAT-PAD",
+  "desc": "TIS Saturn 133,101 And 80 Panel"
+ },
+ "0xccb4": {
+  "model": "TIS-SAT57",
+  "desc": "TIS Saturn 57 Panel"
+ },
+ "0xccb5": {
+  "model": "TIS-SAT40",
+  "desc": "TIS Saturn 40 Panel"
+ },
+ "0xccb6": {
+  "model": "TIS-NEO",
+  "desc": "TIS NEO Panel"
+ }
+}
