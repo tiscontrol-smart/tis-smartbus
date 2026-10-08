@@ -53,8 +53,12 @@ class CommandsTest(unittest.TestCase):
     def test_decoders(self) -> None:
         levels = cmd.decode_channel_levels(OpCode.CHANNEL_STATUS_REPLY, bytes([3, 100, 0, 40]))
         self.assertEqual([(c.channel, c.level) for c in levels], [(1, 100), (2, 0), (3, 40)])
-        one = cmd.decode_channel_levels(OpCode.SINGLE_CHANNEL_REPLY, bytes([4, 55, 0, 0]))
-        self.assertEqual([(c.channel, c.level) for c in one], [(4, 55)])
+        # live captures from a DIM-6CH-2A switched from the TIS app: [channel, 0xF8, level]
+        on = cmd.decode_channel_levels(OpCode.SINGLE_CHANNEL_REPLY, bytes.fromhex("04f864"))
+        off = cmd.decode_channel_levels(OpCode.SINGLE_CHANNEL_REPLY, bytes.fromhex("04f800"))
+        self.assertEqual([(c.channel, c.level) for c in on + off], [(4, 100), (4, 0)])
+        # anything without the done marker is not a level
+        self.assertEqual(cmd.decode_channel_levels(OpCode.SINGLE_CHANNEL_REPLY, bytes([4, 55, 0, 0])), [])
         # live capture 2026-09-05: "041a00" = cool setpoint 26
         self.assertEqual(cmd.decode_panel(bytes.fromhex("041a00")), (PanelType.COOL_SETPOINT, 26))
         self.assertEqual(cmd.decode_remark(b"Living Relay\x00\x00\xff"), "Living Relay")
@@ -93,7 +97,7 @@ class FakeGateway(asyncio.DatagramProtocol):
         elif tel.opcode == OpCode.SINGLE_CHANNEL:
             ch, lvl = tel.content[0], tel.content[1]
             self.levels[ch - 1] = lvl
-            self._reply(addr, OpCode.SINGLE_CHANNEL_REPLY, bytes([ch, lvl, 0, 0]))
+            self._reply(addr, OpCode.SINGLE_CHANNEL_REPLY, bytes([ch, 0xF8, lvl]))
 
 
 class GatewayTest(unittest.IsolatedAsyncioTestCase):

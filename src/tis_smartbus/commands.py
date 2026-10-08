@@ -18,7 +18,7 @@ class OpCode(IntEnum):
     REMARK = 0x000E  # read the module's comment/name
     REMARK_REPLY = 0x000F
     SINGLE_CHANNEL = 0x0031
-    SINGLE_CHANNEL_REPLY = 0x0032  # CONFIRMED [channel, level, rampHi, rampLo]
+    SINGLE_CHANNEL_REPLY = 0x0032  # CONFIRMED [channel, 0xF8, level] (0xF8 = done)
     CHANNEL_STATUS = 0x0033
     CHANNEL_STATUS_REPLY = 0x0034  # CONFIRMED [qty, ch1..chN]
     SECURITY = 0x0104
@@ -64,6 +64,7 @@ class CurtainAction(IntEnum):
 
 
 ALL_CHANNELS = 255
+REPLY_OK = 0xF8  # second byte of a SINGLE_CHANNEL_REPLY when the module carried the command out
 
 
 def _byte(value: int) -> int:
@@ -106,8 +107,9 @@ def decode_channel_levels(opcode: int, content: bytes) -> list[ChannelLevel]:
         return [
             ChannelLevel(ch, content[ch]) for ch in range(1, min(qty, len(content) - 1) + 1)
         ]
-    if opcode == OpCode.SINGLE_CHANNEL_REPLY and len(content) >= 2:
-        return [ChannelLevel(content[0], content[1])]
+    if opcode == OpCode.SINGLE_CHANNEL_REPLY and len(content) >= 3 and content[1] == REPLY_OK:
+        # Captured live: "04f864" = channel 4 now at 100 %, "04f800" = channel 4 now off.
+        return [ChannelLevel(content[0], content[2])]
     return []
 
 
