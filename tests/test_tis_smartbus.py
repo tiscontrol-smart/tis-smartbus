@@ -104,7 +104,7 @@ class GatewayTest(unittest.IsolatedAsyncioTestCase):
             lambda: self.fake, local_addr=("127.0.0.1", 0)
         )
         port = self.fake_transport.get_extra_info("sockname")[1]
-        self.gw = TISGateway("127.0.0.1", port, local_ip="127.0.0.1", bind_port=0)
+        self.gw = TISGateway("127.0.0.1", port, local_ip="127.0.0.1", bind_port=0, broadcast=None)
         await self.gw.connect()
 
     async def asyncTearDown(self) -> None:
@@ -135,6 +135,26 @@ class GatewayTest(unittest.IsolatedAsyncioTestCase):
 
     async def test_request_times_out_cleanly(self) -> None:
         self.assertIsNone(await self.gw.read_channels(9, 9, timeout=0.2))
+
+
+class RoutingTest(unittest.TestCase):
+    """Several gateways, each in front of its own part of the bus (common on larger sites)."""
+
+    def test_sends_to_the_gateway_a_module_was_heard_through(self) -> None:
+        gw = TISGateway("192.168.1.200", local_ip="192.168.1.115")
+        self.assertEqual(gw._destination(4, 44), "255.255.255.255")  # not heard yet: every gateway
+        reply = frame(OpCode.CHANNEL_STATUS_REPLY, 255, 255, bytes([1, 100]),
+                      src_subnet=4, src_device=44, src_type=0x0258)
+        gw._on_datagram(reply, "192.168.1.198")
+        self.assertEqual(gw._destination(4, 44), "192.168.1.198")
+        self.assertEqual(gw._destination(255, 255), "255.255.255.255")
+        gw._on_datagram(frame(0x0034, 255, 255, b"\x00", src_subnet=4, src_device=45, src_type=0x0258),
+                        "192.168.1.115")  # our own echo never becomes a route
+        self.assertNotIn((4, 45), gw.routes)
+
+    def test_without_broadcast_unknown_modules_go_to_host(self) -> None:
+        gw = TISGateway("10.0.0.5", local_ip="10.0.0.2", broadcast=None)
+        self.assertEqual(gw._destination(1, 5), "10.0.0.5")
 
 
 if __name__ == "__main__":

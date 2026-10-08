@@ -5,7 +5,6 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass
 from enum import StrEnum
-from functools import cache
 from importlib import resources
 
 
@@ -56,12 +55,19 @@ class DeviceType:
     description: str = ""
 
 
-@cache
-def _table() -> dict[int, dict]:
+def _load() -> dict[int, dict]:
     raw = json.loads(
         resources.files(__package__).joinpath("device_types.json").read_text("utf-8")
     )
     return {int(code, 16): entry for code, entry in raw.items()}
+
+
+# Read once at import time, so lookups never touch the disk (they run inside event loops).
+_TABLE = _load()
+
+
+def _table() -> dict[int, dict]:
+    return _TABLE
 
 
 def lookup(code: int) -> DeviceType:

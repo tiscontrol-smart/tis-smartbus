@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tis-smartbus"
-version = "0.1.0"
+version = "0.1.1"
 description = "Async client for the TIS Control SmartBus over an IP gateway"
 readme = "README.md"
 requires-python = ">=3.12"

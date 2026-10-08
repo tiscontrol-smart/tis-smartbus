@@ -16,6 +16,7 @@ from .protocol import BROADCAST, CONSOLE_DEVICE_TYPE, Telegram, frame, parse
 _LOGGER = logging.getLogger(__name__)
 
 DEFAULT_PORT = 6000
+BROADCAST_IP = "255.255.255.255"
 Listener = Callable[[Telegram], None]
 
 
@@ -57,14 +58,22 @@ class _Protocol(asyncio.DatagramProtocol):
         self._owner = owner
 
     def datagram_received(self, data: bytes, addr: tuple[str, int]) -> None:
-        self._owner._on_datagram(data)
+        self._owner._on_datagram(data, addr[0])
 
     def error_received(self, exc: Exception) -> None:
         _LOGGER.debug("UDP error: %s", exc)
 
 
 class TISGateway:
-    """Send telegrams to, and receive every telegram from, one TIS bus."""
+    """Send telegrams to, and receive every telegram from, a TIS installation.
+
+    A site often has several IP gateways, each in front of its own part of the bus, and a command only
+    reaches modules behind the gateway it was sent to. So the client learns which gateway each module
+    talks through (from the address its telegrams arrive from) and sends there. Modules not heard from
+    yet, and discovery, go to ``broadcast`` so that every gateway on the LAN passes them on.
+    ``host`` is any one gateway; it picks the network interface, and is used instead of broadcasting
+    when ``broadcast`` is None.
+    """
 
     def __init__(
         self,
@@ -73,10 +82,13 @@ class TISGateway:
         *,
         local_ip: str | None = None,
         bind_port: int | None = DEFAULT_PORT,
+        broadcast: str | None = BROADCAST_IP,
     ) -> None:
         self.host = host
         self.port = port
         self.local_ip = local_ip
+        self.broadcast = broadcast
+        self.routes: dict[tuple[int, int], str] = {}  # module -> IP of the gateway it is behind
         self._bind_port = bind_port
         self._transport: asyncio.DatagramTransport | None = None
         self._listeners: list[Listener] = []
@@ -126,7 +138,14 @@ class TISGateway:
         if self._transport is None:
             raise TISConnectionError("not connected")
         datagram = frame(opcode, subnet, device, content, src_ip=self.local_ip or "0.0.0.0")
-        self._transport.sendto(datagram, (self.host, self.port))
+        self._transport.sendto(datagram, (self._destination(subnet, device), self.port))
+
+    def _destination(self, subnet: int, device: int) -> str:
+        if subnet != BROADCAST and device != BROADCAST:
+            gateway = self.routes.get((subnet, device))
+            if gateway is not None:
+                return gateway
+        return self.broadcast or self.host
 
     async def request(
         self,
@@ -151,12 +170,14 @@ class TISGateway:
             if waiter in self._waiters:
                 self._waiters.remove(waiter)
 
-    def _on_datagram(self, data: bytes) -> None:
+    def _on_datagram(self, data: bytes, sender_ip: str | None = None) -> None:
         telegram = parse(data)
         if telegram is None or not telegram.crc_ok:
             return
         if telegram.device_type == CONSOLE_DEVICE_TYPE:
             return  # our own sends, or another configuration console
+        if sender_ip and sender_ip != self.local_ip and 1 <= telegram.src_subnet <= 254:
+            self.routes[telegram.source] = sender_ip
         for waiter in list(self._waiters):
             if waiter.future.done() or waiter.opcode != telegram.opcode:
                 continue
@@ -186,10 +207,13 @@ class TISGateway:
 
         unsubscribe = self.add_listener(collect)
         try:
-            self.send(OpCode.DEVICE_TYPE_ADDR, BROADCAST, BROADCAST)
-            await asyncio.sleep(timeout / 2)
-            self.send(OpCode.REMARK, BROADCAST, BROADCAST)
-            await asyncio.sleep(timeout / 2)
+            # Asked twice: when every module answers at once a few replies are lost on the bus.
+            # Modules that do not answer these reads are still picked up from their own traffic.
+            for _ in range(2):
+                self.send(OpCode.DEVICE_TYPE_ADDR, BROADCAST, BROADCAST)
+                await asyncio.sleep(timeout / 4)
+                self.send(OpCode.REMARK, BROADCAST, BROADCAST)
+                await asyncio.sleep(timeout / 4)
         finally:
             unsubscribe()
         return sorted(found.values(), key=lambda d: d.address)
