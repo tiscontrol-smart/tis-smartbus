@@ -77,8 +77,11 @@ def lookup(code: int) -> DeviceType:
         return DeviceType(code, f"TIS 0x{code:04X}", Category.OTHER)
     category = _FLAG_CATEGORY.get(entry.get("flag", -1), Category.OTHER)
     model = entry["model"]
+    # The official table leaves "flag" empty for some models; their names say what they are.
     if category is Category.OTHER and model.upper().startswith(("DIM-", "DALI")):
         category = Category.DIMMER
+    elif category is Category.OTHER and model.upper().startswith(("RCU", "RLY-")):
+        category = Category.RELAY
     return DeviceType(
         code=code,
         model=model,

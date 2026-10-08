@@ -67,6 +67,8 @@ class CommandsTest(unittest.TestCase):
         dim = lookup(0x0258)
         self.assertEqual((dim.model, dim.category, dim.channels), ("DIM-6CH-2A", Category.DIMMER, 6))
         self.assertEqual(lookup(0xABCD).category, Category.OTHER)
+        rcu = lookup(0x802D)  # RCU-20R20Z-IP: no flag in the official table, 20 relay outputs
+        self.assertEqual((rcu.model, rcu.category, rcu.channels), ("RCU-20R20Z-IP", Category.RELAY, 20))
 
 
 class FakeGateway(asyncio.DatagramProtocol):
